@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talk with Website - AI Chatbot</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+        :root {
+            --primary-color: #0A74DA;
+            --secondary-color: #f5f5f5;
+            --background-color: #ffffff;
+            --text-color: #333333;
+            --border-color: #e0e0e0;
+            --btn-hover-color: #005bb5;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --header-gradient: linear-gradient(135deg, #0A74DA, #50e6ff);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--secondary-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            background-color: var(--background-color);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 90vh;
+        }
+
+        .header {
+            background: var(--header-gradient);
+            color: var(--background-color);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 18px;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        .chat-container {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: var(--secondary-color);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .chat-bubble {
+            max-width: 70%;
+            padding: 15px;
+            border-radius: 15px;
+            font-size: 16px;
+            line-height: 1.5;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            animation: fadeInUp 0.4s ease;
+        }
+
+        .user-message {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .bot-response {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+            border: 1px solid var(--primary-color);
+        }
+
+        .input-container {
+            display: flex;
+            padding: 15px;
+            background-color: var(--background-color);
+            border-top: 1px solid var(--border-color);
+            align-items: center;
+        }
+
+        .input-field {
+            flex-grow: 1;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 25px;
+            outline: none;
+            font-size: 16px;
+            background-color: var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px var(--primary-color);
+        }
+
+        .send-button {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-left: 15px;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+
+        .send-button:hover {
+            background-color: var(--btn-hover-color);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            font-size: 14px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .chat-bubble {
+                max-width: 75%;
+            }
+
+            .input-field,
+            .send-button {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                height: auto;
+                max-width: 100%;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .chat-bubble {
+                max-width: 90%;
+            }
+
+            .input-field {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .send-button {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .chat-bubble {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .input-field {
+                padding: 8px;
+            }
+
+            .send-button {
+                width: 35px;
+                height: 35px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Talk with Websites</h1>
+            <p>Your AI-powered assistant for retrieving information across 80+ websites.|| AI -900 MS Learn </p>
+        </div>
+
+        <div class="chat-container" id="chat-container"></div>
+
+        <div class="input-container">
+            <input type="text" id="user-input" class="input-field" placeholder="Ask your question..." />
+            <button id="send-button" class="send-button">➤</button>
+        </div>
+
+        <div class="footer">
+            © 2024 Talk with Website -  LLM & RAG
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('send-button').addEventListener('click', sendMessage);
+        document.getElementById('user-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        function sendMessage() {
+            const userInput = document.getElementById('user-input');
+            const message = userInput.value.trim();
+            if (message === '') return;
+
+            appendMessage('user-message', message);
+            userInput.value = '';
+
+            fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: message,
+                    chat_history: []
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                appendMessage('bot-response', data.response);
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        function appendMessage(className, text) {
+            const chatContainer = document.getElementById('chat-container');
+            const messageBubble = document.createElement('div');
+            messageBubble.className = `chat-bubble ${className}`;
+            messageBubble.innerText = text;
+            chatContainer.appendChild(messageBubble);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+    </script>
+</body>
+
+</html>

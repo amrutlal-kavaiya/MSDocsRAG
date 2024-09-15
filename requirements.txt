@@ -1,0 +1,16 @@
+beautifulsoup4
+html2text
+python-dotenv
+langchain
+faiss-cpu
+tiktoken
+Flask==3.0.3
+gunicorn==22.0.0
+Werkzeug==3.0.3
+flask-cors
+langchain
+langchain-community 
+langchain-openai 
+faiss-cpu 
+openai
+bs4

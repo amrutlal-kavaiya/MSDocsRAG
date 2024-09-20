@@ -61,7 +61,7 @@ WebsiteGPT is built on a robust Flask backend, utilizing cutting-edge AI technol
 
 4. Run the indexing script to create your website's knowledge base:
    ```
-   python index_website.py --url https://your-website.com
+   python data_ingetion.py
    ```
 
 5. Start the WebsiteGPT server:
@@ -76,12 +76,3 @@ WebsiteGPT is built on a robust Flask backend, utilizing cutting-edge AI technol
 - **Branding**: Adjust the `templates/index.html` file to match your website's look and feel.
 - **AI Behavior**: Modify the system prompt in `app.py` to change how the AI assistant behaves and responds.
 - **Indexing**: Customize `index_website.py` to focus on specific parts of your website or to include additional data sources.
-
-
-## Contributing
-
-We welcome contributions from the community! Please read our [Contributing Guidelines](CONTRIBUTING.md) before submitting pull requests.
-
-## License
-
-WebsiteGPT is released under the [MIT License](LICENSE).
